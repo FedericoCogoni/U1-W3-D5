@@ -475,28 +475,56 @@ console.log(trovaId("container"))
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 console.log("-Esercizio 21-")
-
+const selector = tag => document.querySelectorAll(tag)
+console.log(selector("td"))
 /* ESERCIZIO 22
-  Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
+  Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto 
+  in ogni tag <td> all'interno della pagina.
 */
 console.log("-Esercizio 22-")
+const tdContent = tag => {
+  const x = selector(tag)
+  x.forEach(element => {
+    console.log(element.textContent)
+  })
+}
+console.log(tdContent("td"))
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 console.log("-Esercizio 23-")
+//non mi riusciva con la funzione, sono fuso
+const link = document.querySelector("a")
+link.style.backgroundColor = "black"
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 console.log("-Esercizio 24-")
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 console.log("-Esercizio 25-")
+const emptyList = function () {
+  const list = document.getElementById("myList")
+  while (list.firstChild) {
+    list.removeChild(list.firstChild)
+  }
+}
+emptyList()
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
 console.log("-Esercizio 26-")
+const tr = document.querySelectorAll("tr")
+tr.forEach(element => {
+  element.classList.add("css")
+})
+
+//!!!! testa fusa, energie finite non ho utilizzato le funzioni per gli ultimi esercizi purtroppo, ma non ne ho più per oggi!!!!
+
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
