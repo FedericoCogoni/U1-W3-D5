@@ -236,7 +236,14 @@ console.log(rollTheDices(2))
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni 
   trascorsi da tale data.
 */
-
+console.log("-Esercizio 9-")
+const howManyDays = date => {
+  const currentDate = new Date()
+  const sub = currentDate - date
+  const day = Math.floor(sub / (1000 * 60 * 60 * 24))
+  return day
+}
+console.log(howManyDays(new Date("2024-01-31")))
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
@@ -456,12 +463,33 @@ console.log(searchByTitle(movies, "lord"))
   fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 console.log("-Esercizio 18-")
-
+const searchAndDivide = (obj, string) => {
+  const unmatch = []
+  const match = []
+  obj.forEach(movie => {
+    if (movie.Title.toLowerCase().includes(string.toLowerCase())) {
+      match.push(movie)
+    } else {
+      unmatch.push(movie)
+    }
+  })
+  return { match, unmatch }
+}
+console.log(searchAndDivide(movies, "avengers"))
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 console.log("-Esercizio 19-")
-
+const removeIndex = (obj, index) => {
+  const movieList = []
+  obj.forEach(movie => {
+    if (obj[index] !== movie) {
+      movieList.push(movie)
+    }
+  })
+  return movieList
+}
+console.log(removeIndex(movies, 1))
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
@@ -501,7 +529,13 @@ link.style.backgroundColor = "black"
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 console.log("-Esercizio 24-")
-
+const addList = (id, text = "text") => {
+  const pos = findId(id)
+  const newElement = document.createElement("li")
+  newElement.innerText = text
+  pos.appendChild(newElement)
+}
+addList("myList")
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
@@ -538,6 +572,7 @@ tr.forEach(element => {
   ***
 
 */
+console.log("-Esercizio 27-")
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di
